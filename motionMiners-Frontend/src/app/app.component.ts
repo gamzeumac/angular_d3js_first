@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/internal/Observable";
 import {select, Store} from "@ngrx/store";
-
+import{ProductEffect} from "./app.effects"
 import {ProductService} from "./lizenzen.service";
 import * as productActions from "./lizenzen.actions"
 import {Product} from "./Product";
@@ -20,13 +20,15 @@ export class AppComponent
     products$: Observable<Product[]>;
 
      constructor(private productService: ProductService,
+
                  private store: Store<fromApp.ProductState>,
                
-                 ) {
+                 ) {  
      }
     ngOnInit() {
        this.store.dispatch(new productActions.Load());
-     }
+       console.log( 'products',this.products$)
+     }     
      
    
 }

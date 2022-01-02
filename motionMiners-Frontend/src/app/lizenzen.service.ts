@@ -2,12 +2,11 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/internal/Observable";
 import {catchError, map, tap} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
-
 import {Product} from "./Product";
 import {throwError} from "rxjs/internal/observable/throwError";
 @Injectable()
 export class ProductService {
- private productsUrl = 'https://dl.dropboxusercontent.com/s/q8ofiulcb1wsxqe/as.json';
+ private productsUrl = 'http://localhost:5000/lizenz';
   constructor(private http: HttpClient) {
   }
 
@@ -17,7 +16,7 @@ export class ProductService {
         map((data) => {
           return data
         }),
-        //   tap(data => console.log(JSON.stringify(data))),
+     tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError)
       );
   }

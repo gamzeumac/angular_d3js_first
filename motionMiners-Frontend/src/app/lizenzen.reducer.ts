@@ -11,12 +11,13 @@ export interface ProductState {
 const initialState: ProductState = {
   toggleCheckBox: true,
   products: [],
-  loaded: false,
+  loaded: true,
   error: ''
 };
 
 
 export function ProductReducer(state = initialState, action: ProductActions): ProductState {
+  console.log(state)
   switch (action.type) {
 case ProductActionTypes.LoadSuccess:
   return {

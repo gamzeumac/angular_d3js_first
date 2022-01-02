@@ -1,3 +1,8 @@
  <h1>deneme</h1>
-
- <app-mylist></app-mylist>
+ <ul>
+    <li *ngFor="let item of products$ | async">
+      <span>{{item.title}}</span>
+      <p>{{item.laufzeit}}</p>
+    </li>
+  </ul>
+ 

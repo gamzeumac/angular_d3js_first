@@ -2,18 +2,19 @@ import {createFeatureSelector, createSelector, ActionReducerMap} from "@ngrx/sto
 import * as fromProduct from './lizenzen.reducer'
 
 export interface State {
-  productFeature: fromProduct.ProductState;
+  products: fromProduct.ProductState;
 }
 export const reducers: ActionReducerMap<State , any > = {
-  productFeature: fromProduct.ProductReducer,
+  products: fromProduct.ProductReducer,
 };
 
-const getProductFeatureState =createFeatureSelector<fromProduct.ProductState>('productFeature')
+const getProductFeatureState =createFeatureSelector<fromProduct.ProductState>('products')
 
 export const getProducts = createSelector(
   getProductFeatureState,
   state => {
     return state.products
+ 
   }
 );
 
