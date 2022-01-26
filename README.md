@@ -1,1 +1,0 @@
-# motionMiners-Frontend
